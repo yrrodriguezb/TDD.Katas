@@ -11,6 +11,7 @@ public class PalindromosTests
     [Theory]
     [InlineData("A")]
     [InlineData("B")]
+    [InlineData("C")]
     public void Si_SeIngresaLaLetraAyB_Debe_RetonarVerdaderoParaIndicarQueEsUnPalindromo(string letra)
     {
         EsPalindromo(letra).Should().Be(true);
