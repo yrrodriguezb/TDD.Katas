@@ -34,9 +34,17 @@ public class PalindromosTests
 
     private static bool EsPalindromo(string str)
     {
-        if (EsTipoChar(str, out char caracter))
+        if (!string.IsNullOrEmpty(str))
         {
-            return EsUnaLetra(caracter);
+            string cadena = string.Empty;
+            int len = str.Length - 1;
+
+            for (int index = len; index > -1; index--)
+            {
+                cadena += str[index];
+            }
+
+            return str == cadena;
         }
 
         return false;
