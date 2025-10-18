@@ -26,47 +26,36 @@ public class PalindromosTests
         EsPalindromo(letra).Should().Be(true);
     }
 
-    [Fact]
-    public void Si_SeIngresaDosLetrasIguales_Debe_RetornarVerdaderoParaIndicarQueEsUnPalindromo()
+    [Theory]
+    [InlineData("AA")]
+    [InlineData("BB")]
+    [InlineData("aa")]
+    [InlineData("bb")]
+    public void Si_SeIngresaDosLetrasIguales_Debe_RetornarVerdaderoParaIndicarQueEsUnPalindromo(string str)
     {
-        EsPalindromo("AA").Should().Be(true);
+        EsPalindromo(str).Should().Be(true);
     }
 
     private static bool EsPalindromo(string str)
     {
         if (!string.IsNullOrEmpty(str))
         {
-            string cadena = string.Empty;
-            int len = str.Length - 1;
-
-            for (int index = len; index > -1; index--)
-            {
-                cadena += str[index];
-            }
-
-            return str == cadena;
+            return IterarCaracteres(str);
         }
 
         return false;
     }
 
-    private static bool EsUnaLetra(int valorAscii)
+    private static bool IterarCaracteres(string str)
     {
-        return EsLetraMayuscula(valorAscii) || EsLetraMinuscula(valorAscii);
-    }
+        string cadena = string.Empty;
+        int len = str.Length - 1;
 
-    private static bool EsLetraMinuscula(int valorAscii)
-    {
-        return valorAscii > 96 && valorAscii < 122;
-    }
+        for (int index = len; index > -1; index--)
+        {
+            cadena += str[index];
+        }
 
-    private static bool EsLetraMayuscula(int valorAscii)
-    {
-        return valorAscii > 64 && valorAscii < 91;
-    }
-
-    private static bool EsTipoChar(string str, out char caracter)
-    {
-        return char.TryParse(str, out caracter);
+        return str == cadena;
     }
 }
