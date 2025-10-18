@@ -14,6 +14,12 @@ public class PalindromosTests
         EsPalindromo("A").Should().Be(true);
     }
 
+    [Fact]
+    public void Si_SeIngresaLaLetraB_Debe_RetornarVerdaderoParaInidicarQueEsUnPalindromo()
+    {
+        EsPalindromo("B").Should().Be(true);
+    }
+
     private static bool EsPalindromo(string str)
     {
         return str == "A";
