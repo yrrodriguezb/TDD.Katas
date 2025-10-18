@@ -19,12 +19,21 @@ public class PalindromosTests
 
     private static bool EsPalindromo(string str)
     {
-        if (char.TryParse(str, out char caracter))
+        if (EsTipoChar(str, out char caracter))
         {
-            int valorAscii = (int)caracter;
-            return valorAscii > 64 && valorAscii < 91;
+            return EsUnaLetra(caracter);
         }
 
         return false;
+    }
+
+    private static bool EsUnaLetra(int valorAscii)
+    {
+        return valorAscii > 64 && valorAscii < 91;
+    }
+
+    private static bool EsTipoChar(string str, out char caracter)
+    {
+        return char.TryParse(str, out caracter);
     }
 }
