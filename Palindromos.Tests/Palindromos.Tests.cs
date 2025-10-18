@@ -8,16 +8,12 @@ public class PalindromosTests
         EsPalindromo(string.Empty).Should().Be(false);
     }
 
-    [Fact]
-    public void Si_SeIngresaLaLetraA_Debe_RetonarVerdaderoParaIndicarQueEsUnPalindromo()
+    [Theory]
+    [InlineData("A")]
+    [InlineData("B")]
+    public void Si_SeIngresaLaLetraAyB_Debe_RetonarVerdaderoParaIndicarQueEsUnPalindromo(string letra)
     {
-        EsPalindromo("A").Should().Be(true);
-    }
-
-    [Fact]
-    public void Si_SeIngresaLaLetraB_Debe_RetornarVerdaderoParaInidicarQueEsUnPalindromo()
-    {
-        EsPalindromo("B").Should().Be(true);
+        EsPalindromo(letra).Should().Be(true);
     }
 
     private static bool EsPalindromo(string str)
