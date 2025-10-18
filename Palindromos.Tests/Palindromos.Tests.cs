@@ -17,6 +17,12 @@ public class PalindromosTests
         EsPalindromo(letra).Should().Be(true);
     }
 
+    [Fact]
+    public void Si_SeIngresaLaLetraAMinuscula_Debe_RetornarVerdaderoParaIndicarQueEsUnPalindromo()
+    {
+        EsPalindromo("a").Should().Be(true);
+    }
+
     private static bool EsPalindromo(string str)
     {
         if (EsTipoChar(str, out char caracter))
