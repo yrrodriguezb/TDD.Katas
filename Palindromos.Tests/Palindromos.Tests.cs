@@ -35,7 +35,7 @@ public class PalindromosTests
 
     private static bool EsUnaLetra(int valorAscii)
     {
-        return valorAscii > 64 && valorAscii < 91;
+        return valorAscii > 64 && valorAscii < 91 || valorAscii > 96 && valorAscii < 122;
     }
 
     private static bool EsTipoChar(string str, out char caracter)
