@@ -12,6 +12,6 @@ public class PalindromosTests
 
     private static bool EsPalindromo(string str)
     {
-        throw new NotImplementedException();
+        return false;
     }
 }
