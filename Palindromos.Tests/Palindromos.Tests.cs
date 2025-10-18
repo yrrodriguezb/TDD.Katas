@@ -12,15 +12,18 @@ public class PalindromosTests
     [InlineData("A")]
     [InlineData("B")]
     [InlineData("C")]
-    public void Si_SeIngresaLaLetraAyB_Debe_RetonarVerdaderoParaIndicarQueEsUnPalindromo(string letra)
+    public void Si_SeIngresaLaLetraMayuscula_Debe_RetonarVerdaderoParaIndicarQueEsUnPalindromo(string letra)
     {
         EsPalindromo(letra).Should().Be(true);
     }
 
-    [Fact]
-    public void Si_SeIngresaLaLetraAMinuscula_Debe_RetornarVerdaderoParaIndicarQueEsUnPalindromo()
+    [Theory]
+    [InlineData("a")]
+    [InlineData("b")]
+    [InlineData("c")]
+    public void Si_SeIngresaLaLetraAMinuscula_Debe_RetornarVerdaderoParaIndicarQueEsUnPalindromo(string letra)
     {
-        EsPalindromo("a").Should().Be(true);
+        EsPalindromo(letra).Should().Be(true);
     }
 
     private static bool EsPalindromo(string str)
@@ -35,7 +38,17 @@ public class PalindromosTests
 
     private static bool EsUnaLetra(int valorAscii)
     {
-        return valorAscii > 64 && valorAscii < 91 || valorAscii > 96 && valorAscii < 122;
+        return EsLetraMayuscula(valorAscii) || EsLetraMinuscula(valorAscii);
+    }
+
+    private static bool EsLetraMinuscula(int valorAscii)
+    {
+        return valorAscii > 96 && valorAscii < 122;
+    }
+
+    private static bool EsLetraMayuscula(int valorAscii)
+    {
+        return valorAscii > 64 && valorAscii < 91;
     }
 
     private static bool EsTipoChar(string str, out char caracter)
