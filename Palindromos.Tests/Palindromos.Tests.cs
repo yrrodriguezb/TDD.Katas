@@ -36,6 +36,12 @@ public class PalindromosTests
         EsPalindromo(str).Should().Be(true);
     }
 
+    [Fact]
+    public void Si_SeIngresanDosLetrasUnaMinusculaYUnaMayuscula_Debe_RetornarVerdaderoParaIndicarAQueEsUnPalindromo()
+    {
+        EsPalindromo("aA").Should().Be(true);
+    }
+
     private static bool EsPalindromo(string str)
     {
         if (!string.IsNullOrEmpty(str))
