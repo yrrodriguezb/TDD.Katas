@@ -42,10 +42,13 @@ public class PalindromosTests
         EsPalindromo("aA").Should().Be(true);
     }
 
-    [Fact]
-    public void Si_SeIngresanDosLetrasIgualesConEspacios_Debe_RetornarVerdaderoParaIndicarQueEsUnPalindromo()
+    [Theory]
+    [InlineData("Aa ")]
+    [InlineData(" Aa")]
+    [InlineData(" aA ")]
+    public void Si_SeIngresanDosLetrasIgualesConEspacios_Debe_RetornarVerdaderoParaIndicarQueEsUnPalindromo(string str)
     {
-        EsPalindromo("Aa ").Should().Be(true);
+        EsPalindromo(str).Should().Be(true);
     }
 
     private static bool EsPalindromo(string str)
@@ -61,12 +64,12 @@ public class PalindromosTests
     private static bool IterarCaracteres(string str)
     {
         string cadena = string.Empty;
-        var strOriginal = str.ToLower();
+        var strOriginal = str.ToLower().Trim();
         int len = strOriginal.Length - 1;
 
         for (int index = len; index > -1; index--)
         {
-            cadena += char.ToLower(str[index]);
+            cadena += char.ToLower(strOriginal[index]);
         }
 
         return strOriginal == cadena;
