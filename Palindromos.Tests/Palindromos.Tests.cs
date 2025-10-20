@@ -51,6 +51,12 @@ public class PalindromosTests
         EsPalindromo(str).Should().Be(true);
     }
 
+    [Fact]
+    public void Si_SeIngresaUnDigito_Debe_RetornarVerdaderoIndicandoQueEsUnPalindromo()
+    {
+        EsPalindromo("1").Should().Be(true);
+    }
+
     private static bool EsPalindromo(string str)
     {
         if (!string.IsNullOrEmpty(str))
