@@ -64,7 +64,7 @@ public class PalindromosTests
     private static bool IterarCaracteres(string str)
     {
         string cadena = string.Empty;
-        var strOriginal = str.ToLower().Trim();
+        var strOriginal = NormalizarString(str);
         int len = strOriginal.Length - 1;
 
         for (int index = len; index > -1; index--)
@@ -73,5 +73,10 @@ public class PalindromosTests
         }
 
         return strOriginal == cadena;
+    }
+
+    private static string NormalizarString(string str)
+    {
+        return str.ToLower().Trim();
     }
 }
