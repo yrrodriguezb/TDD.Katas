@@ -42,6 +42,12 @@ public class PalindromosTests
         EsPalindromo("aA").Should().Be(true);
     }
 
+    [Fact]
+    public void Si_SeIngresanDosLetrasIgualesConEspacios_Debe_RetornarVerdaderoParaIndicarQueEsUnPalindromo()
+    {
+        EsPalindromo("Aa ").Should().Be(true);
+    }
+
     private static bool EsPalindromo(string str)
     {
         if (!string.IsNullOrEmpty(str))
