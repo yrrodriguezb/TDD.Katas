@@ -55,13 +55,14 @@ public class PalindromosTests
     private static bool IterarCaracteres(string str)
     {
         string cadena = string.Empty;
-        int len = str.Length - 1;
+        var strOriginal = str.ToLower();
+        int len = strOriginal.Length - 1;
 
         for (int index = len; index > -1; index--)
         {
-            cadena += str[index].ToString().ToLower();
+            cadena += char.ToLower(str[index]);
         }
 
-        return str.ToLower() == cadena;
+        return strOriginal == cadena;
     }
 }
