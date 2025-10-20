@@ -37,7 +37,7 @@ public class PalindromosTests
     }
 
     [Fact]
-    public void Si_SeIngresanDosLetrasUnaMinusculaYUnaMayuscula_Debe_RetornarVerdaderoParaIndicarAQueEsUnPalindromo()
+    public void Si_SeIngresanDosLetrasUnaMinusculaYUnaMayuscula_Debe_RetornarVerdaderoParaIndicarQueEsUnPalindromo()
     {
         EsPalindromo("aA").Should().Be(true);
     }
@@ -59,9 +59,9 @@ public class PalindromosTests
 
         for (int index = len; index > -1; index--)
         {
-            cadena += str[index];
+            cadena += str[index].ToString().ToLower();
         }
 
-        return str == cadena;
+        return str.ToLower() == cadena;
     }
 }
