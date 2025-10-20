@@ -51,16 +51,14 @@ public class PalindromosTests
         EsPalindromo(str).Should().Be(true);
     }
 
-    [Fact]
-    public void Si_SeIngresaUnDigito_Debe_RetornarVerdaderoIndicandoQueEsUnPalindromo()
+    [Theory]
+    [InlineData("1")]
+    [InlineData("11")]
+    [InlineData("2222")]
+    [InlineData("3333333")]
+    public void Si_SeIngresaUnoOMasDigitosIguales_Debe_RetornarVerdaderoIndicandoQueEsUnPalindromo(string str)
     {
-        EsPalindromo("1").Should().Be(true);
-    }
-
-    [Fact]
-    public void Si_SeIngresaDosDigitosIguales_Debe_RetornarVerdaderoIndicandoQueEsUnPalindromo()
-    {
-        EsPalindromo("11").Should().Be(true);
+        EsPalindromo(str).Should().Be(true);
     }
 
     private static bool EsPalindromo(string str)
