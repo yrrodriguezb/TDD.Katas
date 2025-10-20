@@ -57,6 +57,12 @@ public class PalindromosTests
         EsPalindromo("1").Should().Be(true);
     }
 
+    [Fact]
+    public void Si_SeIngresaDosDigitosIguales_Debe_RetornarVerdaderoIndicandoQueEsUnPalindromo()
+    {
+        EsPalindromo("11").Should().Be(true);
+    }
+
     private static bool EsPalindromo(string str)
     {
         if (!string.IsNullOrEmpty(str))
