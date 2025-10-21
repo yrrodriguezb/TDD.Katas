@@ -68,6 +68,24 @@ public class PalindromosTests
     {
         EsPalindromo(str).Should().Be(true);
     }
+
+    [Theory]
+    [InlineData("Race car")]
+    [InlineData("Anna!")]
+    [InlineData("A man, a plan, a canal, Panama!")]
+    public void Si_SeIngresanFrasesCompuestas_Debe_RetornarVerdaderoSiEsUnPalindromo(string str)
+    {
+        EsPalindromo(str).Should().Be(true);
+    }
+
+    [Theory]
+    [InlineData("Race car 1")]
+    [InlineData("axDbTbd6")]
+    [InlineData("Hello, World!")]
+    public void Si_LaEntradaNoEsUnPalindromo_Debe_RetornarFalso(string str)
+    {
+        EsPalindromo(str).Should().Be(false);
+    }
     
     private static bool EsPalindromo(string str)
     {
