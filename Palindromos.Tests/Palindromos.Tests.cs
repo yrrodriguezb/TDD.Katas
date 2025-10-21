@@ -61,16 +61,26 @@ public class PalindromosTests
         EsPalindromo(str).Should().Be(true);
     }
 
-    [Fact]
-    public void Si_SeIngresanLetrasYNumeros_Debe_RetornarVerdaderoSiEsUnPalindromo()
+    [Theory]
+    [InlineData("6ab1")]
+    [InlineData("6axDbTbd6")]
+    public void Si_SeIngresanLetrasYNumeros_Debe_RetornarVerdaderoSiEsUnPalindromo(string str)
     {
-        EsPalindromo("6ab1").Should().Be(true);
+        EsPalindromo(str).Should().Be(true);
     }
 
     private static bool EsPalindromo(string str)
     {
         if (!string.IsNullOrEmpty(str))
         {
+            var strOriginal = NormalizarString(str);
+
+            if (EsAlfanumerico(strOriginal))
+            {
+                var reverseStr = string.Join("", strOriginal.Reverse());
+                return ConvertirTextoABinario(strOriginal) == ConvertirTextoABinario(reverseStr);
+            }
+
             return IterarCaracteres(str);
         }
 
@@ -89,6 +99,26 @@ public class PalindromosTests
         }
 
         return strOriginal == cadena;
+    }
+
+    private static string ConvertirTextoABinario(string str)
+    {
+        string cadena = string.Empty;
+
+        foreach (char caracter in str)
+        {
+            if (char.IsDigit(caracter))
+                cadena += "1";
+            else
+                cadena += "0";
+        }
+
+        return cadena;
+    }
+
+    private static bool EsAlfanumerico(string str)
+    {
+        return Regex.IsMatch(str, @"^[a-zA-Z0-9]+$");
     }
 
     private static string NormalizarString(string str)
