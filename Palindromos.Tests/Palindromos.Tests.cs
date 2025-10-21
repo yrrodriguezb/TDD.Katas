@@ -61,6 +61,12 @@ public class PalindromosTests
         EsPalindromo(str).Should().Be(true);
     }
 
+    [Fact]
+    public void Si_SeIngresanLetrasYNumeros_Debe_RetornarVerdaderoSiEsUnPalindromo()
+    {
+        EsPalindromo("6ab1").Should().Be(true);
+    }
+
     private static bool EsPalindromo(string str)
     {
         if (!string.IsNullOrEmpty(str))
