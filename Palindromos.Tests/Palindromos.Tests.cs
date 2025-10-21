@@ -68,37 +68,29 @@ public class PalindromosTests
     {
         EsPalindromo(str).Should().Be(true);
     }
-
+    
     private static bool EsPalindromo(string str)
     {
         if (!string.IsNullOrEmpty(str))
         {
             var strOriginal = NormalizarString(str);
 
-            if (EsAlfanumerico(strOriginal))
+            if (TieneLetrasYNumeros(strOriginal))
             {
-                var reverseStr = string.Join("", strOriginal.Reverse());
+                var reverseStr = ObtenerTextoAlReves(strOriginal);
                 return ConvertirTextoABinario(strOriginal) == ConvertirTextoABinario(reverseStr);
             }
 
-            return IterarCaracteres(str);
+            return ObtenerTextoAlReves(strOriginal) == strOriginal;
         }
 
         return false;
     }
 
-    private static bool IterarCaracteres(string str)
+
+    private static string ObtenerTextoAlReves(string str)
     {
-        string cadena = string.Empty;
-        var strOriginal = NormalizarString(str);
-        int len = strOriginal.Length - 1;
-
-        for (int index = len; index > -1; index--)
-        {
-            cadena += char.ToLower(strOriginal[index]);
-        }
-
-        return strOriginal == cadena;
+        return string.Join("", str.Reverse());
     }
 
     private static string ConvertirTextoABinario(string str)
@@ -107,22 +99,25 @@ public class PalindromosTests
 
         foreach (char caracter in str)
         {
-            if (char.IsDigit(caracter))
-                cadena += "1";
-            else
-                cadena += "0";
+            cadena += char.IsDigit(caracter) ? "1" : "0";
         }
 
         return cadena;
     }
 
-    private static bool EsAlfanumerico(string str)
+    private static bool TieneLetrasYNumeros(string str)
     {
-        return Regex.IsMatch(str, @"^[a-zA-Z0-9]+$");
+        return !string.IsNullOrWhiteSpace(str) 
+            && str.Any(char.IsLetter) 
+            && str.Any(char.IsDigit);
     }
 
     private static string NormalizarString(string str)
     {
-        return str.ToLower().Trim();
+        return string.Join("", str
+            .ToLower()
+            .Trim()
+            .Where(char.IsLetterOrDigit)
+        );
     }
 }
