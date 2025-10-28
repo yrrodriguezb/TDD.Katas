@@ -74,7 +74,7 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(false);
     }
-    
+
     [Fact]
     public void Si_IngresoUnTextoQueNoTieneUnGuionBajo_Debe_ReturnarFalse()
     {
@@ -86,5 +86,34 @@ public class PasswordValidatorTests
 
         // Assert
         result.Should().Be(false);
+    }
+    
+    [Fact]
+    public void Si_IngresoUnTextoConUnaLongitudMinimaPersonalizada_Debe_PermitirConfigurarLongitudMinima()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidatorBuilder()
+            .ConLongitudMinima(5)
+            .Build();
+
+        // Act
+        bool result = passwordValidator.EsValido("Abc1_");
+
+        // Assert
+        result.Should().Be(true);
+    }
+
+}
+
+public class PasswordValidatorBuilder
+{
+    public PasswordValidatorBuilder ConLongitudMinima(int v)
+    {
+        return this;
+    }
+
+    public PasswordValidator Build()
+    {
+        throw new NotImplementedException();
     }
 }
