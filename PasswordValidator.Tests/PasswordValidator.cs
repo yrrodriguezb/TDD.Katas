@@ -3,10 +3,12 @@ namespace PasswordValidator.Tests;
 public class PasswordValidator
 {
     private int _LongitudMinima { get; set; }
+    public bool TieneMayusculas { get; set; }
 
     public PasswordValidator()
     {
         _LongitudMinima = 8;
+        TieneMayusculas = true;
     }
 
     public bool EsValido(string password)
@@ -20,7 +22,7 @@ public class PasswordValidator
     {
         return ReglasPassword.EsNuloOVacio(newPassword)
             || ReglasPassword.NoTieneLongitudMinimaRequerida(newPassword, _LongitudMinima)
-            || ReglasPassword.NoTieneMayusculas(newPassword)
+            || (TieneMayusculas && ReglasPassword.NoTieneMayusculas(newPassword))
             || ReglasPassword.NoTieneMinusculas(newPassword)
             || ReglasPassword.NoTieneNumeros(newPassword)
             || ReglasPassword.NoTieneGuionBajo(newPassword);
