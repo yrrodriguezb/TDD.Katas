@@ -61,7 +61,7 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(false);
     }
-    
+
     [Fact]
     public void Si_IngresoUnTextoQueNoTieneALMenosUnNumero_Debe_ReturnarFalse()
     {
@@ -69,7 +69,20 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.EsValido("ABCDEFGHIkj"); 
+        bool result = passwordValidator.EsValido("ABCDEFGHIkj");
+
+        // Assert
+        result.Should().Be(false);
+    }
+    
+    [Fact]
+    public void Si_IngresoUnTextoQueNoTieneUnGuionBajo_Debe_ReturnarFalse()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidator();
+
+        // Act
+        bool result = passwordValidator.EsValido("Abcdefgh1");
 
         // Assert
         result.Should().Be(false);
