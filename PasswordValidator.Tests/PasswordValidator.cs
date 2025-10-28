@@ -62,4 +62,9 @@ public class PasswordValidator
     {
         return password.Trim();
     }
+
+    public void SetLongitudMinima(int v)
+    {
+        _LongitudMinima = v;
+    }
 }

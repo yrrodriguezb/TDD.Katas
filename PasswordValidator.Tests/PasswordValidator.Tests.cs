@@ -107,13 +107,18 @@ public class PasswordValidatorTests
 
 public class PasswordValidatorBuilder
 {
-    public PasswordValidatorBuilder ConLongitudMinima(int v)
+    private int _longitudMinima = 8;
+
+    public PasswordValidatorBuilder ConLongitudMinima(int longitudMinima)
     {
+        _longitudMinima = longitudMinima;
         return this;
     }
 
     public PasswordValidator Build()
     {
-        throw new NotImplementedException();
+       var passwordValidator = new PasswordValidator();
+       passwordValidator.SetLongitudMinima(_longitudMinima);
+       return passwordValidator;
     }
 }
