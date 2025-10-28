@@ -139,9 +139,9 @@ public class PasswordValidatorBuilder
         return this;
     }
 
-    public PasswordValidatorBuilder RequiereMayusculas(bool v)
+    public PasswordValidatorBuilder RequiereMayusculas(bool requiere)
     {
-        _requiereMayusculas = v;
+        _requiereMayusculas = requiere;
         return this;
     }
 }
