@@ -16,12 +16,17 @@ public class PasswordValidator
         if (EsNuloOVacio(newPassword) ||
             NoTieneLongitudMinimaRequerida(newPassword) ||
             NoTieneMayusculas(newPassword) ||
-            !newPassword.Any(char.IsLower))
+            NoTieneMinusculas(newPassword))
         {
             return false;
         }
 
         return true;
+    }
+
+    private static bool NoTieneMinusculas(string newPassword)
+    {
+        return !newPassword.Any(char.IsLower);
     }
 
     private static bool EsNuloOVacio(string newPassword)
