@@ -24,6 +24,6 @@ public class PasswordValidator
 {
     public bool Validate(string password)
     {
-        return false;
+        return !(password == string.Empty);
     }
 }
