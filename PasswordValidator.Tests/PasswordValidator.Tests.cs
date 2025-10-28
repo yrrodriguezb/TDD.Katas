@@ -171,6 +171,7 @@ public class PasswordValidatorBuilder
     private bool _requiereMayusculas = true;
     private bool _requiereMinusculas = true;
     private bool _requiereNumeros = true;
+    private bool _requiereGuionesBajo;
 
     public PasswordValidator Build()
     {
@@ -208,6 +209,7 @@ public class PasswordValidatorBuilder
 
     public PasswordValidatorBuilder RequiereGuiones(bool requiere)
     {
-        throw new NotImplementedException();
+        _requiereGuionesBajo = requiere;
+        return this;
     }
 }
