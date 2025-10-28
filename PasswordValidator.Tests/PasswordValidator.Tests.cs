@@ -1,5 +1,4 @@
-﻿
-using FluentAssertions;
+﻿using FluentAssertions;
 
 namespace PasswordValidator.Tests;
 
@@ -119,7 +118,7 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(true);
     }
-    
+
     [Fact]
     public void Si_SeConfiguraElBuilderConRequiereMinisculasEnFalso_Debe_PermitirDeshabilitarValidacionDeMinisculas()
     {
@@ -134,7 +133,21 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(true);
     }
+    
+     [Fact]
+    public void Si_SeConfiguraElBuilderConRequiereNumerosEnFalso_Debe_PermitirDeshabilitarValidacionDeNumeros()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidatorBuilder()
+            .RequiereNumeros(false)
+            .Build();
 
+        // Act
+        bool result = passwordValidator.EsValido("ABCDEFGHIkj");
+
+        // Assert
+        result.Should().Be(true);
+    }
 }
 
 public class PasswordValidatorBuilder
@@ -168,5 +181,10 @@ public class PasswordValidatorBuilder
     {
         _requiereMinusculas = requiere;
         return this;
+    }
+
+    public PasswordValidatorBuilder RequiereNumeros(bool requiere)
+    {
+        throw new NotImplementedException();
     }
 }
