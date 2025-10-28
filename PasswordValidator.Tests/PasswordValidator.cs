@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace PasswordValidator.Tests;
 
 public class PasswordValidator
@@ -20,42 +18,12 @@ public class PasswordValidator
 
     private bool TieneError(string newPassword)
     {
-        return EsNuloOVacio(newPassword)
-            || NoTieneLongitudMinimaRequerida(newPassword)
-            || NoTieneMayusculas(newPassword)
-            || NoTieneMinusculas(newPassword)
-            || NoTieneNumeros(newPassword)
-            || NoTieneGuionBajo(newPassword);
-    }
-
-    private static bool NoTieneGuionBajo(string newPassword)
-    {
-        return !newPassword.Contains('_');
-    }
-
-    private static bool NoTieneNumeros(string newPassword)
-    {
-        return !newPassword.Any(char.IsDigit);
-    }
-
-    private static bool NoTieneMinusculas(string newPassword)
-    {
-        return !newPassword.Any(char.IsLower);
-    }
-
-    private static bool EsNuloOVacio(string newPassword)
-    {
-        return string.IsNullOrEmpty(newPassword);
-    }
-
-    private static bool NoTieneMayusculas(string newPassword)
-    {
-        return !newPassword.Any(char.IsUpper);
-    }
-
-    private bool NoTieneLongitudMinimaRequerida(string newPassword)
-    {
-        return newPassword.Length < _LongitudMinima;
+        return ReglasPassword.EsNuloOVacio(newPassword)
+            || ReglasPassword.NoTieneLongitudMinimaRequerida(newPassword, _LongitudMinima)
+            || ReglasPassword.NoTieneMayusculas(newPassword)
+            || ReglasPassword.NoTieneMinusculas(newPassword)
+            || ReglasPassword.NoTieneNumeros(newPassword)
+            || ReglasPassword.NoTieneGuionBajo(newPassword);
     }
 
     private static string LimpiarTexto(string password)
