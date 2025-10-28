@@ -15,17 +15,22 @@ public class PasswordValidator
     {
         string newPassword = LimpiarTexto(password);
 
-        return !EsPasswordValido(newPassword);
+        return !TieneError(newPassword);
     }
 
-    private bool EsPasswordValido(string newPassword)
+    private bool TieneError(string newPassword)
     {
         return EsNuloOVacio(newPassword)
             || NoTieneLongitudMinimaRequerida(newPassword)
             || NoTieneMayusculas(newPassword)
             || NoTieneMinusculas(newPassword)
             || NoTieneNumeros(newPassword)
-            || !newPassword.Contains('_');
+            || NoTieneGuionBajo(newPassword);
+    }
+
+    private static bool NoTieneGuionBajo(string newPassword)
+    {
+        return !newPassword.Contains('_');
     }
 
     private static bool NoTieneNumeros(string newPassword)
