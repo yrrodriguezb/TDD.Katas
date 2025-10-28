@@ -48,7 +48,7 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(true);
     }
-    
+
     [Fact]
     public void Si_IngresoUnTextoConSoloLetrasMayusculas_Debe_ReturnarFalse()
     {
@@ -56,7 +56,20 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.Validate("ABCDEFGHIJK"); 
+        bool result = passwordValidator.Validate("ABCDEFGHIJK");
+
+        // Assert
+        result.Should().Be(false);
+    }
+    
+    [Fact]
+    public void Si_IngresoUnTextoQueNoTieneALMenosUnNumero_Debe_ReturnarFalse()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidator();
+
+        // Act
+        bool result = passwordValidator.Validate("ABCDEFGHIkj"); 
 
         // Assert
         result.Should().Be(false);
