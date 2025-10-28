@@ -47,6 +47,20 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(false);
     }
+
+    [Fact]
+    public void Si_SeIngresaUnTextoConTresCaracteres_Debe_ReturnarFalse()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidator();
+        string password = "abc";
+
+        // Act
+        bool result = passwordValidator.Validate(password);
+
+        // Assert
+        result.Should().Be(false);
+    }
 }
 
 
