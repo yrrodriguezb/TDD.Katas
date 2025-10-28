@@ -133,8 +133,8 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(true);
     }
-    
-     [Fact]
+
+    [Fact]
     public void Si_SeConfiguraElBuilderConRequiereNumerosEnFalso_Debe_PermitirDeshabilitarValidacionDeNumeros()
     {
         // Arrange
@@ -147,6 +147,21 @@ public class PasswordValidatorTests
 
         // Assert
         result.Should().Be(true);
+    }
+
+    [Fact]
+    public void Si_SeConfiguraElBuilderConRequiereGuionEnFalso_Debe_PermitirDeshabilitarValidacionConGuion()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidatorBuilder()
+            .RequiereGuiones(false)
+            .Build();
+
+        // Act
+        bool result = passwordValidator.EsValido("Abcdefgh1");
+
+        // Assert
+        result.Should().Be(false);
     }
 }
 
@@ -189,5 +204,10 @@ public class PasswordValidatorBuilder
     {
         _requiereNumeros = requiere;
         return this;
+    }
+
+    public PasswordValidatorBuilder RequiereGuiones(bool requiere)
+    {
+        throw new NotImplementedException();
     }
 }
