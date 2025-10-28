@@ -56,7 +56,12 @@ public class PasswordValidator
     {
         string newPassword = LimpiarTexto(password);
 
-        return newPassword.Length <= 2 ? false : !string.IsNullOrEmpty(newPassword);
+        return NoTieneLongitudMinimaRequerida(newPassword) ? false : !string.IsNullOrEmpty(newPassword);
+    }
+
+    private static bool NoTieneLongitudMinimaRequerida(string newPassword)
+    {
+        return newPassword.Length <= 2;
     }
 
     private static string LimpiarTexto(string password)
