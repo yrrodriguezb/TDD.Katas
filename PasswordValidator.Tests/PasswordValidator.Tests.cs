@@ -164,9 +164,9 @@ public class PasswordValidatorBuilder
         return this;
     }
 
-    public PasswordValidatorBuilder RequiereMinisculas(bool v)
+    public PasswordValidatorBuilder RequiereMinisculas(bool requiere)
     {
-        _requiereMinusculas = v;
+        _requiereMinusculas = requiere;
         return this;
     }
 }
