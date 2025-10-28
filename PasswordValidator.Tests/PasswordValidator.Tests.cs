@@ -4,32 +4,20 @@ namespace PasswordValidator.Tests;
 
 public class PasswordValidatorTests
 {
-    [Fact]
-    public void Si_SeIngresaUnTextoVacio_Debe_ReturnarFalse()
+    [Theory]
+    [InlineData("", false)]
+    [InlineData(" ", false)]
+    [InlineData("    ", false)]
+    public void ValidarContraseña(string password, bool expectedResult)
     {
         // Arrange
         var passwordValidator = new PasswordValidator();
-        string password = "";
 
         // Act
         bool result = passwordValidator.Validate(password);
 
         // Assert
-        result.Should().Be(false);
-    }
-
-    [Fact]
-    public void Si_SeIngresaUnTextoConEspacios_Debe_ReturnarFalse()
-    {
-        // Arrange
-        var passwordValidator = new PasswordValidator();
-        string password = " ";
-
-        // Act
-        bool result = passwordValidator.Validate(password);
-
-        // Assert
-        result.Should().Be(false);
+        result.Should().Be(expectedResult);
     }
 
     [Fact]
@@ -54,10 +42,7 @@ public class PasswordValidator
     {
         string newPassword = LimpiarTexto(password);
 
-        if (newPassword.Length == 1)
-            return false;
-
-        return !string.IsNullOrEmpty(newPassword);
+        return newPassword.Length == 1 ? false : !string.IsNullOrEmpty(newPassword);
     }
 
     private static string LimpiarTexto(string password)
