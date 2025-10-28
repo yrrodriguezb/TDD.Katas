@@ -87,7 +87,7 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(false);
     }
-    
+
     [Fact]
     public void Si_IngresoUnTextoConUnaLongitudMinimaPersonalizada_Debe_PermitirConfigurarLongitudMinima()
     {
@@ -102,6 +102,21 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(true);
     }
+    
+    [Fact]
+    public void Si_SeConfiguraElBuilderConRequiereMayusculasEnFalso_Debe_PermitirDeshabilitarValidacionDeMayusculas()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidatorBuilder()
+            .RequiereMayusculas(false)
+            .Build();
+
+        // Act
+        bool result = passwordValidator.EsValido("abcdefgh1");
+
+        // Assert
+        result.Should().Be(true);
+    }
 
 }
 
@@ -109,16 +124,21 @@ public class PasswordValidatorBuilder
 {
     private int _longitudMinima = 8;
 
+    public PasswordValidator Build()
+    {
+        var passwordValidator = new PasswordValidator();
+        passwordValidator.SetLongitudMinima(_longitudMinima);
+        return passwordValidator;
+    }
+    
     public PasswordValidatorBuilder ConLongitudMinima(int longitudMinima)
     {
         _longitudMinima = longitudMinima;
         return this;
     }
 
-    public PasswordValidator Build()
+    public PasswordValidatorBuilder RequiereMayusculas(bool v)
     {
-       var passwordValidator = new PasswordValidator();
-       passwordValidator.SetLongitudMinima(_longitudMinima);
-       return passwordValidator;
+        return this;
     }
 }
