@@ -56,7 +56,7 @@ public class PasswordValidator
     {
         string newPassword = LimpiarTexto(password);
 
-        return newPassword.Length == 1 ? false : !string.IsNullOrEmpty(newPassword);
+        return newPassword.Length <= 2 ? false : !string.IsNullOrEmpty(newPassword);
     }
 
     private static string LimpiarTexto(string password)
