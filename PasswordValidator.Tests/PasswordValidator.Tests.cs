@@ -38,6 +38,7 @@ public class PasswordValidator
 {
     public bool Validate(string password)
     {
-        return !(password == string.Empty);
+        string newPassword = password.Trim();
+        return !(newPassword == string.Empty);
     }
 }
