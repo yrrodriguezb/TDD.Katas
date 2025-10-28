@@ -15,3 +15,8 @@ Este repositorio contiene implementaciones de **Katas de TDD** (Test-Driven Deve
    ```bash
    git clone https://github.com/yrrodriguezb/tdd-katas.git
    ```
+
+## Katas
+
+1. [Palindromo](./Palindromos.Tests/Palindromos.Tests.cs)
+2. [Password Validator](./PasswordValidator.Tests/PasswordValidator.Tests.cs)

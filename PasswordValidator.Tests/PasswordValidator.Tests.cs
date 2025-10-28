@@ -1,0 +1,29 @@
+﻿using FluentAssertions;
+
+namespace PasswordValidator.Tests;
+
+public class PasswordValidatorTests
+{
+    [Fact]
+    public void Si_SeIngresaUnTextoVacio_Debe_ReturnarFalse()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidator();
+        string password = "";
+
+        // Act
+        bool result = passwordValidator.Validate(password);
+
+        // Assert
+        result.Should().BeFalse();
+    }
+}
+
+
+public class PasswordValidator
+{
+    public bool Validate(string password)
+    {
+        throw new NotImplementedException();
+    }
+}
