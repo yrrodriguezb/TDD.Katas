@@ -43,9 +43,22 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.Validate("Abcdefgh"); 
+        bool result = passwordValidator.Validate("Abcdefgh");
 
         // Assert
         result.Should().Be(true);
+    }
+    
+    [Fact]
+    public void Si_IngresoUnTextoConSoloLetrasMayusculas_Debe_ReturnarFalse()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidator();
+
+        // Act
+        bool result = passwordValidator.Validate("ABCDEFGHIJK"); 
+
+        // Assert
+        result.Should().Be(false);
     }
 }
