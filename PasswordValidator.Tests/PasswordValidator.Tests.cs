@@ -15,7 +15,7 @@ public class PasswordValidatorTests
         bool result = passwordValidator.Validate(password);
 
         // Assert
-        result.Should().BeFalse();
+        result.Should().Be(false);
     }
 }
 
@@ -24,6 +24,6 @@ public class PasswordValidator
 {
     public bool Validate(string password)
     {
-        throw new NotImplementedException();
+        return false;
     }
 }
