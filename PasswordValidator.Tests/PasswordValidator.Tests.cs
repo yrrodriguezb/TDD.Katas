@@ -14,7 +14,7 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.Validate(password);
+        bool result = passwordValidator.EsValido(password);
 
         // Assert
         result.Should().Be(resultadoEsperado);
@@ -30,7 +30,7 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.Validate(password);
+        bool result = passwordValidator.EsValido(password);
 
         // Assert
         result.Should().Be(resultadoEsperado);
@@ -43,7 +43,7 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.Validate("Abcdefgh1");
+        bool result = passwordValidator.EsValido("Abcdefgh1");
 
         // Assert
         result.Should().Be(true);
@@ -56,7 +56,7 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.Validate("ABCDEFGHIJK");
+        bool result = passwordValidator.EsValido("ABCDEFGHIJK");
 
         // Assert
         result.Should().Be(false);
@@ -69,7 +69,7 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.Validate("ABCDEFGHIkj"); 
+        bool result = passwordValidator.EsValido("ABCDEFGHIkj"); 
 
         // Assert
         result.Should().Be(false);

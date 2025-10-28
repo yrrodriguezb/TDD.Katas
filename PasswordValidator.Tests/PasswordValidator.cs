@@ -9,20 +9,20 @@ public class PasswordValidator
         _LongitudMinima = 8;
     }
 
-    public bool Validate(string password)
+    public bool EsValido(string password)
     {
         string newPassword = LimpiarTexto(password);
 
-        if (EsNuloOVacio(newPassword) ||
-            NoTieneLongitudMinimaRequerida(newPassword) ||
-            NoTieneMayusculas(newPassword) ||
-            NoTieneMinusculas(newPassword) ||
-            NoTieneNumeros(newPassword))
-        {
-            return false;
-        }
+        return !EsPasswordValido(newPassword);
+    }
 
-        return true;
+    private bool EsPasswordValido(string newPassword)
+    {
+        return EsNuloOVacio(newPassword) 
+            || NoTieneLongitudMinimaRequerida(newPassword) 
+            || NoTieneMayusculas(newPassword)
+            || NoTieneMinusculas(newPassword) 
+            || NoTieneNumeros(newPassword);
     }
 
     private static bool NoTieneNumeros(string newPassword)
