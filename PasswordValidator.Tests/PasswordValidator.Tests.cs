@@ -38,7 +38,12 @@ public class PasswordValidator
 {
     public bool Validate(string password)
     {
-        string newPassword = password.Trim();
-        return !(newPassword == string.Empty);
+        string newPassword = LimpiarTexto(password);
+        return !string.IsNullOrEmpty(newPassword);
+    }
+
+    private static string LimpiarTexto(string password)
+    {
+        return password.Trim();
     }
 }
