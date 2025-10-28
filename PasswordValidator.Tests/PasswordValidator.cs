@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace PasswordValidator.Tests;
 
 public class PasswordValidator
@@ -18,11 +20,12 @@ public class PasswordValidator
 
     private bool EsPasswordValido(string newPassword)
     {
-        return EsNuloOVacio(newPassword) 
-            || NoTieneLongitudMinimaRequerida(newPassword) 
+        return EsNuloOVacio(newPassword)
+            || NoTieneLongitudMinimaRequerida(newPassword)
             || NoTieneMayusculas(newPassword)
-            || NoTieneMinusculas(newPassword) 
-            || NoTieneNumeros(newPassword);
+            || NoTieneMinusculas(newPassword)
+            || NoTieneNumeros(newPassword)
+            || !newPassword.Contains('_');
     }
 
     private static bool NoTieneNumeros(string newPassword)

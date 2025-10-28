@@ -43,7 +43,7 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.EsValido("Abcdefgh1");
+        bool result = passwordValidator.EsValido("Abcdefgh1_");
 
         // Assert
         result.Should().Be(true);
