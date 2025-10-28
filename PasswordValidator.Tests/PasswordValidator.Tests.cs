@@ -8,7 +8,7 @@ public class PasswordValidatorTests
     [InlineData("", false)]
     [InlineData(" ", false)]
     [InlineData("    ", false)]
-    public void ValidarContraseña(string password, bool resultadoEsperado)
+    public void Si_IngresoUnTextoConEspaciosOEnBlanco_Debe_ReturnarFalse(string password, bool resultadoEsperado)
     {
         // Arrange
         var passwordValidator = new PasswordValidator();
@@ -43,7 +43,7 @@ public class PasswordValidatorTests
         var passwordValidator = new PasswordValidator();
 
         // Act
-        bool result = passwordValidator.Validate("A");
+        bool result = passwordValidator.Validate("Abcdefgh"); 
 
         // Assert
         result.Should().Be(true);

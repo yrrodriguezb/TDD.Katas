@@ -13,12 +13,20 @@ public class PasswordValidator
     {
         string newPassword = LimpiarTexto(password);
 
-        return NoTieneLongitudMinimaRequerida(newPassword) ? false : !string.IsNullOrEmpty(newPassword);
+      
+        if (string.IsNullOrEmpty(newPassword) || 
+            NoTieneLongitudMinimaRequerida(newPassword) || 
+            !newPassword.Any(char.IsUpper))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private bool NoTieneLongitudMinimaRequerida(string newPassword)
     {
-        return newPassword.Length <= _LongitudMinima;
+        return newPassword.Length < _LongitudMinima;
     }
 
     private static string LimpiarTexto(string password)
