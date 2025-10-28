@@ -143,7 +143,7 @@ public class PasswordValidatorTests
             .Build();
 
         // Act
-        bool result = passwordValidator.EsValido("ABCDEFGHIkj");
+        bool result = passwordValidator.EsValido("ABCDEFGHIkj_");
 
         // Assert
         result.Should().Be(true);
@@ -155,6 +155,7 @@ public class PasswordValidatorBuilder
     private int _longitudMinima = 8;
     private bool _requiereMayusculas = true;
     private bool _requiereMinusculas = true;
+    private bool _requiereNumeros = true;
 
     public PasswordValidator Build()
     {
@@ -162,6 +163,7 @@ public class PasswordValidatorBuilder
         passwordValidator.SetLongitudMinima(_longitudMinima);
         passwordValidator.TieneMayusculas = _requiereMayusculas;
         passwordValidator.TieneMinusculas = _requiereMinusculas;
+        passwordValidator.TieneNumeros = _requiereNumeros;
         return passwordValidator;
     }
     
@@ -185,6 +187,7 @@ public class PasswordValidatorBuilder
 
     public PasswordValidatorBuilder RequiereNumeros(bool requiere)
     {
-        throw new NotImplementedException();
+        _requiereNumeros = requiere;
+        return this;
     }
 }
