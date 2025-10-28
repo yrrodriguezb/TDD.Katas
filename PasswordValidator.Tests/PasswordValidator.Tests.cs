@@ -35,4 +35,17 @@ public class PasswordValidatorTests
         // Assert
         result.Should().Be(resultadoEsperado);
     }
+
+    [Fact]
+    public void Si_IngresoUnTextoConUnaLetraMayuscula_Debe_ReturnarTrue()
+    {
+        // Arrange
+        var passwordValidator = new PasswordValidator();
+
+        // Act
+        bool result = passwordValidator.Validate("A");
+
+        // Assert
+        result.Should().Be(true);
+    }
 }
