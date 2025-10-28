@@ -53,6 +53,10 @@ public class PasswordValidator
     public bool Validate(string password)
     {
         string newPassword = LimpiarTexto(password);
+
+        if (newPassword.Length == 1)
+            return false;
+
         return !string.IsNullOrEmpty(newPassword);
     }
 
