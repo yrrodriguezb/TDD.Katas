@@ -6,6 +6,7 @@ public class PasswordValidator
     public bool TieneMayusculas { get; set; }
     public bool TieneMinusculas { get; set; }
     public bool TieneNumeros { get; set; }
+    public bool TieneGuionBajo { get; set; }
 
     public PasswordValidator()
     {
@@ -13,6 +14,7 @@ public class PasswordValidator
         TieneMayusculas = true;
         TieneMinusculas = true;
         TieneNumeros = true;
+        TieneGuionBajo = true;
     }
 
     public bool EsValido(string password)
@@ -29,7 +31,7 @@ public class PasswordValidator
             || (TieneMayusculas && ReglasPassword.NoTieneMayusculas(newPassword))
             || (TieneMinusculas && ReglasPassword.NoTieneMinusculas(newPassword))
             || (TieneNumeros && ReglasPassword.NoTieneNumeros(newPassword))
-            || ReglasPassword.NoTieneGuionBajo(newPassword);
+            || (TieneGuionBajo && ReglasPassword.NoTieneGuionBajo(newPassword));
     }
 
     private static string LimpiarTexto(string password)
