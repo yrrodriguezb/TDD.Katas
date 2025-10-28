@@ -75,7 +75,7 @@ public class PasswordValidator
 
     private static bool NoTieneLongitudMinimaRequerida(string newPassword)
     {
-        return newPassword.Length <= 2;
+        return newPassword.Length <= 3;
     }
 
     private static string LimpiarTexto(string password)
