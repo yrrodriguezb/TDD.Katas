@@ -15,6 +15,7 @@ public class NumeroRomano
     {
         if (_numero == 1) return "I";
         if (_numero == 2) return "II";
+        if (_numero == 3) return "III";
         return string.Empty;
     }
 
