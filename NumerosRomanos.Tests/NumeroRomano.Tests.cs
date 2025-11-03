@@ -19,4 +19,12 @@ public class NumerosRomanosTests
 
         resultado.ToString().Should().Be("II");
     }
+
+     [Fact]
+    public void Si_Ingreso3_Debe_RetornarIII()
+    {
+        var resultado = new NumeroRomano(3);
+
+        resultado.ToString().Should().Be("III");
+    }
 }
