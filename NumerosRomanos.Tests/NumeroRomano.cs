@@ -11,6 +11,6 @@ public class NumeroRomano
 
     public override string ToString()
     {
-        throw new NotImplementedException();
+        return "I";
     }
 }
