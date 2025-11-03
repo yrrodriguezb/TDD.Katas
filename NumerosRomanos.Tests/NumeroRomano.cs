@@ -13,10 +13,7 @@ public class NumeroRomano
 
     private string ConvertirARomano()
     {
-        if (_numero == 1) return "I";
-        if (_numero == 2) return "II";
-        if (_numero == 3) return "III";
-        return string.Empty;
+        return string.Concat(Enumerable.Repeat("I", _numero));
     }
 
     public override string ToString()

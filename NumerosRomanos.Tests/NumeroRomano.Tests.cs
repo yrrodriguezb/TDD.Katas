@@ -3,28 +3,15 @@
 namespace NumerosRomanos.Tests;
 
 public class NumerosRomanosTests
-{
-    [Fact]
-    public void Si_IngresoUno_Debe_RetonarI()
+{   
+    [Theory]
+    [InlineData(1, "I")]
+    [InlineData(2, "II")]
+    [InlineData(3, "III")]
+    public void Si_IngresoUnNumeroEntre1y3_Debe_RetonarElRomanoCorrespondiente(int numero, string valorEsperado)
     {
-        var resultado = new NumeroRomano(1);
+        var resultado = new NumeroRomano(numero).ToString();
 
-        resultado.ToString().Should().Be("I");
-    }
-
-    [Fact]
-    public void Si_Ingreso2_Debe_RetornarII()
-    {
-        var resultado = new NumeroRomano(2);
-
-        resultado.ToString().Should().Be("II");
-    }
-
-     [Fact]
-    public void Si_Ingreso3_Debe_RetornarIII()
-    {
-        var resultado = new NumeroRomano(3);
-
-        resultado.ToString().Should().Be("III");
+        resultado.Should().Be(valorEsperado);
     }
 }
