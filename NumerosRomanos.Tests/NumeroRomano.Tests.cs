@@ -11,4 +11,12 @@ public class NumerosRomanosTests
 
         resultado.ToString().Should().Be("I");
     }
+
+    [Fact]
+    public void Si_Ingreso2_Debe_RetornarII()
+    {
+        var resultado = new NumeroRomano(2);
+
+        resultado.ToString().Should().Be("II");
+    }
 }
