@@ -11,6 +11,8 @@ public class NumeroRomano
 
     public override string ToString()
     {
-        return "I";
+        if (_numero == 1) return "I";
+
+        return "II";
     }
 }
