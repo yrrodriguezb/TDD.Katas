@@ -24,6 +24,11 @@ public class NumeroRomano
 
     public NumeroRomano(int numero)
     {
+        if (numero < 1 || numero > 3999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(numero), "El número debe estar entre 1 y 3999.");
+        }
+        
         _numero = numero;
         _romano = ConvertirARomano();
     }
