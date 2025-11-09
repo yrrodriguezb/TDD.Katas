@@ -21,4 +21,12 @@ public class NumerosRomanosTests
 
         resultado.Should().Be(valorEsperado);
     }
+
+    [Fact]
+    public void Si_IngresoElNumero40_Debe_RetornarXL()
+    {
+        var resultado = new NumeroRomano(40).ToString();
+
+        resultado.Should().Be("XL");
+    }
 }
