@@ -29,4 +29,14 @@ public class NumerosRomanosTests
 
         resultado.Should().Be(valorEsperado);
     }
+
+    [Fact]
+    public void Si_ElNumeroEsMenorAUnoMayorA3999_Debe_RetornarUnaExcepcion()
+    {
+        var numero = 0;
+
+        Action act = () => new NumeroRomano(numero);
+
+        act.Should().Throw<ArgumentOutOfRangeException>(nameof(numero));
+    }
 }
