@@ -18,34 +18,13 @@ public class NumerosRomanosTests
     [InlineData(40, "XL")]
     [InlineData(50, "L")]
     [InlineData(90, "XC")]
+    [InlineData(100, "C")]
+    [InlineData(400, "CD")]
+    [InlineData(500, "D")]
     public void Si_IngresoUnNumeroEntre1y10_Debe_RetonarElRomanoCorrespondiente(int numero, string valorEsperado)
     {
         var resultado = new NumeroRomano(numero).ToString();
 
         resultado.Should().Be(valorEsperado);
-    }
-
-    [Fact]
-    public void Si_IngresoElNumero100_Debe_RetonarC()
-    {
-        var resultado = new NumeroRomano(100).ToString();
-
-        resultado.Should().Be("C");
-    }
-
-    [Fact]
-    public void Si_IngresoElNumero400_Debe_RetonarCD()
-    {
-        var resultado = new NumeroRomano(400).ToString();
-
-        resultado.Should().Be("CD");
-    }
-    
-    [Fact]
-    public void Si_IngresoElNumero500_Debe_RetonarD()
-    {
-        var resultado = new NumeroRomano(500).ToString();
-
-        resultado.Should().Be("D");
     }
 }
