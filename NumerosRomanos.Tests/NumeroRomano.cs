@@ -19,6 +19,7 @@ public class NumeroRomano
         {400, "CD"},
         {500, "D"},
         {900, "CM"},
+        {1000, "M"}
     };
 
     public NumeroRomano(int numero)
