@@ -34,4 +34,12 @@ public class NumerosRomanosTests
 
         resultado.Should().Be("IX");
     }
+
+    [Fact]
+    public void Si_IngresoElNumero10_Debe_RetornarX()
+    {
+        var resultado = new NumeroRomano(10).ToString();
+
+        resultado.Should().Be("X");
+    }
 }
