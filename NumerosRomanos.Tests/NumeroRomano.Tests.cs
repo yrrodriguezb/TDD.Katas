@@ -29,4 +29,12 @@ public class NumerosRomanosTests
 
         resultado.Should().Be("XL");
     }
+
+    [Fact]
+    public void Si_IngresoElNumero50_Debe_RetornarL()
+    {
+        var resultado = new NumeroRomano(50).ToString();
+
+        resultado.Should().Be("L");
+    }
 }
