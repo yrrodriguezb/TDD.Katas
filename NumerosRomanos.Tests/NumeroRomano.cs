@@ -8,13 +8,8 @@ public class NumeroRomano
     private readonly Dictionary<int, string> _numerosRomanos = new()
     {
         {1, "I"},
-        {2, "II"},
-        {3, "III"},
         {4, "IV"},
         {5, "V"},
-        {6, "VI"},
-        {7, "VII"},
-        {8, "VIII"},
         {9, "IX"},
         {10, "X"}
     };
@@ -27,9 +22,16 @@ public class NumeroRomano
 
     private string ConvertirARomano()
     {
-        if (_numerosRomanos.ContainsKey(_numero))
+        foreach (var item in _numerosRomanos.OrderByDescending(n => n.Key))
         {
-            return _numerosRomanos[_numero];
+            if (_numero == item.Key)
+            {
+                return item.Value;
+            }
+            if (_numero > item.Key)
+            {
+                return item.Value + new NumeroRomano(_numero - item.Key).ToString();
+            }
         }
 
         return string.Empty;

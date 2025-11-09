@@ -12,34 +12,13 @@ public class NumerosRomanosTests
     [InlineData(5, "V")]
     [InlineData(6, "VI")]
     [InlineData(7, "VII")]
-    public void Si_IngresoUnNumeroEntre1y7_Debe_RetonarElRomanoCorrespondiente(int numero, string valorEsperado)
+    [InlineData(8, "VIII")]
+    [InlineData(9, "IX")]
+    [InlineData(10, "X")]
+    public void Si_IngresoUnNumeroEntre1y10_Debe_RetonarElRomanoCorrespondiente(int numero, string valorEsperado)
     {
         var resultado = new NumeroRomano(numero).ToString();
 
         resultado.Should().Be(valorEsperado);
-    }
-
-    [Fact]
-    public void Si_IngresoElNumero8_Debe_RetornarVIII()
-    {
-        var resultado = new NumeroRomano(8).ToString();
-
-        resultado.Should().Be("VIII");
-    }
-
-    [Fact]
-    public void Si_IngresoElNumero9_Debe_RetornarIX()
-    {
-        var resultado = new NumeroRomano(9).ToString();
-
-        resultado.Should().Be("IX");
-    }
-
-    [Fact]
-    public void Si_IngresoElNumero10_Debe_RetornarX()
-    {
-        var resultado = new NumeroRomano(10).ToString();
-
-        resultado.Should().Be("X");
     }
 }
