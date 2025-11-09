@@ -32,4 +32,12 @@ public class NumerosRomanosTests
 
         resultado.Should().Be("C");
     }
+    
+    [Fact]
+    public void Si_IngresoElNumero400_Debe_RetonarCD()
+    {
+        var resultado = new NumeroRomano(400).ToString();
+
+        resultado.Should().Be("CD");
+    }
 }
