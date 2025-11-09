@@ -27,4 +27,12 @@ public class NumerosRomanosTests
 
         resultado.Should().Be(valorEsperado);
     }
+
+    [Fact]
+    public void Si_IngresoElNumero900_Debe_Retonar_CM()
+    { 
+        var resultado = new NumeroRomano(900).ToString();
+
+        resultado.Should().Be("CM");
+    }
 }
