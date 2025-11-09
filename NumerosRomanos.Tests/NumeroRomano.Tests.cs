@@ -24,4 +24,12 @@ public class NumerosRomanosTests
 
         resultado.Should().Be(valorEsperado);
     }
+
+    [Fact]
+    public void Si_IngresoElNumero100_Debe_RetonarC()
+    {
+        var resultado = new NumeroRomano(100).ToString();
+
+        resultado.Should().Be("C");
+    }
 }
