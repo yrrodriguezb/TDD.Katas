@@ -26,4 +26,12 @@ public class NumerosRomanosTests
 
         resultado.Should().Be("VIII");
     }
+
+    [Fact]
+    public void Si_IngresoElNumero9_Debe_RetornarIX()
+    {
+        var resultado = new NumeroRomano(9).ToString();
+
+        resultado.Should().Be("IX");
+    }
 }
