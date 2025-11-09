@@ -11,7 +11,8 @@ public class NumeroRomano
         {4, "IV"},
         {5, "V"},
         {9, "IX"},
-        {10, "X"}
+        {10, "X"},
+        {40, "XL"}
     };
 
     public NumeroRomano(int numero)
