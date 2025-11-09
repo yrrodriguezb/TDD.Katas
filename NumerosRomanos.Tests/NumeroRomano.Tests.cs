@@ -22,12 +22,20 @@ public class NumerosRomanosTests
 
         resultado.Should().Be("IV");
     }
-    
+
     [Fact]
     public void Si_IngresoElNumero5_Debe_RetornarV()
     {
         var resultado = new NumeroRomano(5).ToString();
 
         resultado.Should().Be("V");
+    }
+    
+    [Fact]
+    public void Si_IngresoElNumero6_Debe_RetornarVI()
+    {
+        var resultado = new NumeroRomano(6).ToString();
+
+        resultado.Should().Be("VI");
     }
 }
