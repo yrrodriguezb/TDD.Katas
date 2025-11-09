@@ -21,26 +21,12 @@ public class NumerosRomanosTests
     [InlineData(100, "C")]
     [InlineData(400, "CD")]
     [InlineData(500, "D")]
+    [InlineData(900, "CM")]
+    [InlineData(1000, "M")]
     public void Si_IngresoUnNumeroEntre1y10_Debe_RetonarElRomanoCorrespondiente(int numero, string valorEsperado)
     {
         var resultado = new NumeroRomano(numero).ToString();
 
         resultado.Should().Be(valorEsperado);
-    }
-
-    [Fact]
-    public void Si_IngresoElNumero900_Debe_Retonar_CM()
-    {
-        var resultado = new NumeroRomano(900).ToString();
-
-        resultado.Should().Be("CM");
-    }
-    
-    [Fact]
-    public void Si_IngresoElNumero1000_Debe_Retonar_M()
-    {
-        var resultado = new NumeroRomano(1000).ToString();
-
-        resultado.Should().Be("M");
     }
 }
