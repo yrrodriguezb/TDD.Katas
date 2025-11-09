@@ -19,4 +19,11 @@ public class NumerosRomanosTests
         resultado.Should().Be(valorEsperado);
     }
 
+    [Fact]
+    public void Si_IngresoElNumero8_Debe_RetornarVIII()
+    {
+        var resultado = new NumeroRomano(8).ToString();
+
+        resultado.Should().Be("VIII");
+    }
 }
