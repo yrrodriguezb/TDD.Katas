@@ -37,4 +37,12 @@ public class NumerosRomanosTests
 
         resultado.Should().Be("L");
     }
+
+    [Fact]
+    public void Si_IngresoElNumero90_Debe_RetornarXC()
+    {
+        var resultado = new NumeroRomano(90).ToString();
+
+        resultado.Should().Be("XC");
+    }
 }
