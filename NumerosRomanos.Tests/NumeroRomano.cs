@@ -13,6 +13,9 @@ public class NumeroRomano
 
     private string ConvertirARomano()
     {
+        if (_numero == 4)
+            return "IV";
+            
         return string.Concat(Enumerable.Repeat("I", _numero));
     }
 
