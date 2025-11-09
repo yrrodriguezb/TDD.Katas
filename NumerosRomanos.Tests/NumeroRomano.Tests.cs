@@ -23,6 +23,11 @@ public class NumerosRomanosTests
     [InlineData(500, "D")]
     [InlineData(900, "CM")]
     [InlineData(1000, "M")]
+    [InlineData(1453, "MCDLIII")]
+    [InlineData(1987, "MCMLXXXVII")]
+    [InlineData(2999, "MMCMXCIX")]
+    [InlineData(3456, "MMMCDLVI")]
+    [InlineData(3999, "MMMCMXCIX")]
     public void Si_IngresoUnNumeroEntre1y10_Debe_RetonarElRomanoCorrespondiente(int numero, string valorEsperado)
     {
         var resultado = new NumeroRomano(numero).ToString();
