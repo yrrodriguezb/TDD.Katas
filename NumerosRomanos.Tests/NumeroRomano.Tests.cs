@@ -30,12 +30,20 @@ public class NumerosRomanosTests
 
         resultado.Should().Be("V");
     }
-    
+
     [Fact]
     public void Si_IngresoElNumero6_Debe_RetornarVI()
     {
         var resultado = new NumeroRomano(6).ToString();
 
         resultado.Should().Be("VI");
+    }
+    
+    [Fact]
+    public void Si_IngresoElNumero7_Debe_RetornarVII()
+    {
+        var resultado = new NumeroRomano(7).ToString();
+
+        resultado.Should().Be("VII");
     }
 }
