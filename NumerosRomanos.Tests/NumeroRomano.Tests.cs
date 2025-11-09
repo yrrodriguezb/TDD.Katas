@@ -15,34 +15,13 @@ public class NumerosRomanosTests
     [InlineData(8, "VIII")]
     [InlineData(9, "IX")]
     [InlineData(10, "X")]
+    [InlineData(40, "XL")]
+    [InlineData(50, "L")]
+    [InlineData(90, "XC")]
     public void Si_IngresoUnNumeroEntre1y10_Debe_RetonarElRomanoCorrespondiente(int numero, string valorEsperado)
     {
         var resultado = new NumeroRomano(numero).ToString();
 
         resultado.Should().Be(valorEsperado);
-    }
-
-    [Fact]
-    public void Si_IngresoElNumero40_Debe_RetornarXL()
-    {
-        var resultado = new NumeroRomano(40).ToString();
-
-        resultado.Should().Be("XL");
-    }
-
-    [Fact]
-    public void Si_IngresoElNumero50_Debe_RetornarL()
-    {
-        var resultado = new NumeroRomano(50).ToString();
-
-        resultado.Should().Be("L");
-    }
-
-    [Fact]
-    public void Si_IngresoElNumero90_Debe_RetornarXC()
-    {
-        var resultado = new NumeroRomano(90).ToString();
-
-        resultado.Should().Be("XC");
     }
 }
