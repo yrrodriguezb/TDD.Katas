@@ -14,12 +14,20 @@ public class NumerosRomanosTests
 
         resultado.Should().Be(valorEsperado);
     }
-    
+
     [Fact]
     public void Si_IngresoElNumero4_Debe_RetornarIV()
     {
         var resultado = new NumeroRomano(4).ToString();
 
         resultado.Should().Be("IV");
+    }
+    
+    [Fact]
+    public void Si_IngresoElNumero5_Debe_RetornarV()
+    {
+        var resultado = new NumeroRomano(5).ToString();
+
+        resultado.Should().Be("V");
     }
 }
