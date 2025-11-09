@@ -5,6 +5,15 @@ public class NumeroRomano
     private readonly int _numero;
     private readonly string _romano = string.Empty;
 
+    private readonly Dictionary<int, string> _numerosRomanos = new()
+    {
+        {1, "I"},
+        {2, "II"},
+        {3, "III"},
+        {4, "IV"},
+        {5, "V"},
+    };
+
     public NumeroRomano(int numero)
     {
         _numero = numero;
@@ -13,13 +22,12 @@ public class NumeroRomano
 
     private string ConvertirARomano()
     {
-        if (_numero == 4)
-            return "IV";
+        if (_numerosRomanos.ContainsKey(_numero))
+        {
+            return _numerosRomanos[_numero];
+        }
 
-        if (_numero == 5)
-            return "V";
-            
-        return string.Concat(Enumerable.Repeat("I", _numero));
+        return string.Empty;
     }
 
     public override string ToString()
