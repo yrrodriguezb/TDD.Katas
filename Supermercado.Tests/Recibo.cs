@@ -2,5 +2,5 @@
 
 public class Recibo
 {
-    public List<ArticuloCarrito> Articulos { get; set; }
+    public List<ArticuloCarrito> Articulos { get; set; } = [];
 }
