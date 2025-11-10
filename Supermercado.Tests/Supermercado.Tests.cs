@@ -28,6 +28,6 @@ public class SuperMarket
 {
     public Recibo GenerarRecibo(List<ArticuloCarrito> list)
     {
-        throw new NotImplementedException();
+        return new Recibo();
     }
 }
