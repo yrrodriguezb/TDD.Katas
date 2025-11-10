@@ -24,4 +24,14 @@ public class SupermercadoTests
 
         recibo.Articulos.Should().BeEmpty();
     }
+
+    [Fact]
+    public void Si_SeInicializaUnSupermercado_Debe_RetornarUnReciboConUnValorTotalDeCero()
+    {
+        var  supermercado = new SuperMarket();
+
+        Recibo recibo = supermercado.GenerarRecibo([]);
+
+        recibo.Total.Should().Be(0);
+    }
 }
