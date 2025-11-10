@@ -15,19 +15,3 @@ public class SupermercadoTests
         recibo.Should().NotBeNull();
     }
 }
-
-public class ArticuloCarrito
-{
-}
-
-public class Recibo
-{
-}
-
-public class SuperMarket
-{
-    public Recibo GenerarRecibo(List<ArticuloCarrito> list)
-    {
-        return new Recibo();
-    }
-}
