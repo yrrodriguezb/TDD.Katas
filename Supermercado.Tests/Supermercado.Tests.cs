@@ -27,4 +27,21 @@ public class SupermercadoTests
         recibo.Descuentos.Should().Be(0);
         recibo.Total.Should().Be(0);
     }
+
+    [Fact]
+    public void Si_AgregoUnArticuloTipoLeche_Debe_RetornarUnReciboConUnArticuloTotal1000SubTotal1000Descuentos0()
+    {
+        var  supermercado = new SuperMarket();
+        var articulos = new List<ArticuloCarrito>()
+        {
+            new("Leche", 1),
+        };
+        
+        Recibo recibo = supermercado.GenerarRecibo(articulos);
+
+        recibo.Articulos.Count().Should().Be(1);
+        recibo.SubTotal.Should().Be(1000);
+        recibo.Descuentos.Should().Be(0);
+        recibo.Total.Should().Be(1000);
+    }
 }
