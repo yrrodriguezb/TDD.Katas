@@ -2,4 +2,8 @@
 
 public class ArticuloCarrito
 {
+    public ArticuloCarrito(string nombre, int cantidad)
+    {
+        
+    }
 }

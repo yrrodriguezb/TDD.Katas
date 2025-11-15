@@ -38,4 +38,18 @@ public class SupermercadoTests
         
         supermecado.Productos.Should().BeEquivalentTo(productos);
     }
+
+    [Fact]
+    public void Si_GeneroUnReciboConElProductoLeche_Debe_TenerUnArticuloUnTotalDe1000()
+    {
+        var supermecado = new SuperMarket();
+        var articulosCarrito = new List<ArticuloCarrito>();
+        articulosCarrito.Add(new ArticuloCarrito("Leche", 1));
+        
+        var recibo = supermecado.GenerarRecibo(articulosCarrito);
+        
+        recibo.Articulos.Count.Should().Be(1);
+        recibo.SubTotal.Should().Be(1000);
+        recibo.Total.Should().Be(1000);
+    }
 }
