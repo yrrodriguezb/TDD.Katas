@@ -10,7 +10,7 @@ public class SuperMarket
     {
         if (articulos.Count > 0)
         {
-            return new Recibo(articulos);
+            return new Recibo(articulos, 1000, 0, 1000);
         }
         
         return new Recibo(articulos);

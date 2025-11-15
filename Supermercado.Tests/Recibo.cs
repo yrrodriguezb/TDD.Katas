@@ -14,6 +14,14 @@ public class Recibo
         _articulos  = articulos;
     }
 
+    public Recibo(List<ArticuloCarrito> articulos, decimal total, decimal descuentos, decimal subTotal)
+    {
+        _articulos = articulos;
+        _total = total;
+        _subTotal = subTotal;
+        _descuentos = descuentos;
+    }
+
     public ReadOnlyCollection<ArticuloCarrito> Articulos => _articulos.AsReadOnly();
     public decimal Total => _total;
     public decimal SubTotal => _subTotal;
