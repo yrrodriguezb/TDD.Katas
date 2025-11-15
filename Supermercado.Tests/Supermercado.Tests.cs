@@ -45,7 +45,7 @@ public class SupermercadoTests
         recibo.Total.Should().Be(1000);
     }
 
-       [Fact]
+    [Fact]
     public void Si_AgregoDosArticulosTipoLeche_Debe_RetornarUnReciboConUnTotal1000SubTotal1000Descuentos0()
     {
         var  supermercado = new SuperMarket();
@@ -59,5 +59,22 @@ public class SupermercadoTests
         recibo.SubTotal.Should().Be(2000);
         recibo.Descuentos.Should().Be(0);
         recibo.Total.Should().Be(2000);
+    }
+    
+    [Fact]
+    public void Si_AgregoDosArticulosUnoTipoLecheOtroTipoArroz_Debe_RetornarUnReciboConUnTotal2500SubTotal2500Descuentos0()
+    {
+        var  supermercado = new SuperMarket();
+        var articulos = new List<ArticuloCarrito>()
+        {
+            new("Leche", 1),
+            new("Arroz", 1)
+        };
+        
+        Recibo recibo = supermercado.GenerarRecibo(articulos);
+
+        recibo.SubTotal.Should().Be(2500);
+        recibo.Descuentos.Should().Be(0);
+        recibo.Total.Should().Be(2500);
     }
 }

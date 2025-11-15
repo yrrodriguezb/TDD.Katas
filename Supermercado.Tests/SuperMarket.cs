@@ -10,7 +10,8 @@ public class SuperMarket
     {
         if (articulos.Count > 0)
         {
-            return new Recibo(articulos, 1000, 0, 1000);
+            decimal valor = 1000 * articulos[0].Cantidad;
+            return new Recibo(articulos, valor, 0, valor);
         }
         
         return new Recibo(articulos);
