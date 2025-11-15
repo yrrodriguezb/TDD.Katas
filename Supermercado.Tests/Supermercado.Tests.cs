@@ -26,4 +26,24 @@ public class SupermercadoTests
         recibo.SubTotal.Should().Be(0);
         recibo.Total.Should().Be(0);
     }
+
+    [Fact]
+    public void Si_SeInicializaUnSupermercado_Debe_TenerUnCatalogoDeProductos()
+    {
+        var productos = new List<Producto>()
+        {
+            new("Leche", 1000m)
+        };
+        var supermecado = new SuperMarket(productos);
+        
+        supermecado.Productos.Should().BeEquivalentTo(productos);
+    }
+}
+
+public class Producto
+{
+    public Producto(string nombre, decimal valor)
+    {
+        throw new NotImplementedException();
+    }
 }
