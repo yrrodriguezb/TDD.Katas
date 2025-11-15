@@ -44,6 +44,6 @@ public class Producto
 {
     public Producto(string nombre, decimal valor)
     {
-        throw new NotImplementedException();
+
     }
 }
