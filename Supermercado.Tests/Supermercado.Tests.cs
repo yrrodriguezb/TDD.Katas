@@ -39,11 +39,3 @@ public class SupermercadoTests
         supermecado.Productos.Should().BeEquivalentTo(productos);
     }
 }
-
-public class Producto
-{
-    public Producto(string nombre, decimal valor)
-    {
-
-    }
-}
