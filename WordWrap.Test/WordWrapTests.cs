@@ -20,9 +20,9 @@ public class WordWrapTests
         resultado.Should().Be("this");
     }
 
-    private static string Wrap(string empty, int i)
+    private static string Wrap(string word, int i)
     {
-        if (empty == "this")
+        if (word == "this")
             return "this";
         
         return string.Empty;
