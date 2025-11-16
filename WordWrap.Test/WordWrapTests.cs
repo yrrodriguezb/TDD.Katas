@@ -35,6 +35,14 @@ public class WordWrapTests
 
         resultado.Should().Be("abc\ndef\nghi\nj");
     }
+    
+    [Fact(DisplayName = "e")]
+    public void Si_SeIngresaLaPalabraWORD_WORD_ConUnValorDeColumna3_Debe_RetonarWOR_D_WOR_D_SeparadosPorSaltosDeLinea()
+    {
+        var result = Wrap("word word", 3);
+
+        result.Should().Be("wor\nd\nwor\nd");
+    }
 
     private static string Wrap(string word, int columna)
     {
