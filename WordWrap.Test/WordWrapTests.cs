@@ -32,9 +32,9 @@ public class WordWrapTests
     {
         if (word == "this")
             return "this";
-        else if (word == "word")
+        if (word == "word")
             return "wo\nrd";
-        
+
         return string.Empty;
     }
 }
