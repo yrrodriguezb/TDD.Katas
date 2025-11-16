@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordValidator.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermercado.Tests", "Supermercado.Tests\Supermercado.Tests.csproj", "{11656868-15FF-4E69-869C-5530F9918F35}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordWrap.Test", "WordWrap.Test\WordWrap.Test.csproj", "{91033806-2B9C-4867-97FA-F85C33CE83CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{11656868-15FF-4E69-869C-5530F9918F35}.Release|x64.Build.0 = Release|Any CPU
 		{11656868-15FF-4E69-869C-5530F9918F35}.Release|x86.ActiveCfg = Release|Any CPU
 		{11656868-15FF-4E69-869C-5530F9918F35}.Release|x86.Build.0 = Release|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Debug|x64.Build.0 = Debug|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Debug|x86.Build.0 = Debug|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Release|x64.ActiveCfg = Release|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Release|x64.Build.0 = Release|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Release|x86.ActiveCfg = Release|Any CPU
+		{91033806-2B9C-4867-97FA-F85C33CE83CF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
