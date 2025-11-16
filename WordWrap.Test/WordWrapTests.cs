@@ -27,6 +27,14 @@ public class WordWrapTests
 
         resultado.Should().Be("wo\nrd");
     } 
+    
+    [Fact(DisplayName = "d")]
+    public void Si_SeIngresanLasLetrasABCDEFGHIJ_Debe_RetornarABC_DEF_GHI_J_SeparadosPorSaltosDeLinea()
+    {
+        var resultado = Wrap("abcdefghij", 3);
+
+        resultado.Should().Be("abc\ndef\nghi\nj");
+    }
 
     private static string Wrap(string word, int i)
     {
