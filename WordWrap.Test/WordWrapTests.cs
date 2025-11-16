@@ -43,6 +43,39 @@ public class WordWrapTests
 
         resultado.Should().Be("wor\nd\nwor\nd");
     }
+    
+    [Fact]
+    public void f()
+    {
+        var resultado = Wrap("word word", 6);
+
+        resultado.Should().Be("word\nword");
+    }  
+    
+    [Fact]
+    public void f2()
+    {
+        var resultado = Wrap("word word", 5);
+
+        resultado.Should().Be("word\nword");
+    }
+    
+    [Fact]
+    public void g()
+    {
+        var resultado = Wrap("word word word", 6);
+
+        resultado.Should().Be("word\nword\nword");
+    }
+    
+    [Fact(DisplayName = "h")]
+    public void Si_SeIngresaLaPalabraWORD_WORD_WORD_ConUnValorDeColumna11_Debe_RetornarWORD_WORD_WORD_SeparadosPorEspacioSaltoDelinea()
+    {
+        var resultado = Wrap("word word word", 11);
+
+        resultado.Should().Be("word word\nword");
+    }
+        
 
     private static string Wrap(string word, int columna)
     {
