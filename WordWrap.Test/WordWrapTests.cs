@@ -36,14 +36,23 @@ public class WordWrapTests
         resultado.Should().Be("abc\ndef\nghi\nj");
     }
 
-    private static string Wrap(string word, int i)
+    private static string Wrap(string word, int columna)
     {
-        if (word == "this")
-            return "this";
-        if (word == "word")
-            return "wo\nrd";
-        if (word == "abcdefghij")
-            return "abc\ndef\nghi\nj";
+        string str = string.Empty;
+        
+        if (word.Length > 0)
+        {
+            for (int index = 0; index < word.Length; index++)
+            {
+                if (index > 0 && index % columna == 0)
+                    str += "\n";
+                
+                str += word[index];
+            }
+            
+            return str;
+        }
+        
 
         return string.Empty;
     }
