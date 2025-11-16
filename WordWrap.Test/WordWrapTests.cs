@@ -19,6 +19,14 @@ public class WordWrapTests
 
         resultado.Should().Be("this");
     }
+    
+    [Fact(DisplayName = "c")]
+    public void Si_SeIngresaLaPalabraWordConUnValorDeColumna2_Debe_RetornarWO_RD_SeparadosPorUnSaltoDeLinea()
+    {
+        var resultado = Wrap("word", 2);
+
+        resultado.Should().Be("wo\nrd");
+    } 
 
     private static string Wrap(string word, int i)
     {
