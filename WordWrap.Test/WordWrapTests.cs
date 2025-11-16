@@ -9,10 +9,10 @@ public class WordWrapTests
     {
         var resultado = Wrap("", 1);
        
-       resultado.Should().Be("");
+        resultado.Should().Be("");
     }
 
-    private string Wrap(string empty, int i)
+    private static string Wrap(string empty, int i)
     {
         return string.Empty;
     }
