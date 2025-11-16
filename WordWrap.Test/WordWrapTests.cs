@@ -39,26 +39,43 @@ public class WordWrapTests
     [Fact(DisplayName = "e")]
     public void Si_SeIngresaLaPalabraWORD_WORD_ConUnValorDeColumna3_Debe_RetonarWOR_D_WOR_D_SeparadosPorSaltosDeLinea()
     {
-        var result = Wrap("word word", 3);
+        var resultado = Wrap("word word", 3);
 
-        result.Should().Be("wor\nd\nwor\nd");
+        resultado.Should().Be("wor\nd\nwor\nd");
     }
 
     private static string Wrap(string word, int columna)
     {
-        string str = string.Empty;
+        string result = string.Empty;
+        string[] palabras = word.Split(" ");
+        int iteraciones = 0;
         
         if (word.Length > 0)
         {
-            for (int index = 0; index < word.Length; index++)
+            foreach (var palabra in palabras)
             {
-                if (index > 0 && index % columna == 0)
-                    str += "\n";
+                iteraciones++;
                 
-                str += word[index];
+                if (palabra.Length > columna)
+                {
+                    for (int index = 0; index < palabra.Length; index++)
+                    {
+                        if (index > 0 && index % columna == 0)
+                            result += "\n";
+                        
+                        result += palabra[index];
+                    }
+                }
+                else
+                {
+                    result += palabra;
+                }
+                
+                if (palabras.Length >= 1 && iteraciones < palabras.Length)
+                    result += "\n";
             }
             
-            return str;
+            return result;
         }
         
 
