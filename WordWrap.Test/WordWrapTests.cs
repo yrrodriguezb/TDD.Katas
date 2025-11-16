@@ -42,6 +42,8 @@ public class WordWrapTests
             return "this";
         if (word == "word")
             return "wo\nrd";
+        if (word == "abcdefghij")
+            return "abc\ndef\nghi\nj";
 
         return string.Empty;
     }
