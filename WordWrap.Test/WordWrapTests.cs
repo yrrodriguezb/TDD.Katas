@@ -79,39 +79,54 @@ public class WordWrapTests
 
     private static string Wrap(string word, int columna)
     {
-        string result = string.Empty;
-        string[] palabras = word.Split(" ");
-        int iteraciones = 0;
-        
-        if (word.Length > 0)
+        if (string.IsNullOrEmpty(word))
+            return string.Empty;
+            
+        string[] palabras = word.Split(' ');
+        string resultado = string.Empty;
+        int longitudLineaActual = 0;
+
+        for (int i = 0; i < palabras.Length; i++)
         {
-            foreach (var palabra in palabras)
+            string palabra = palabras[i];
+
+            if (palabra.Length > columna)
             {
-                iteraciones++;
-                
-                if (palabra.Length > columna)
+                for (int j = 0; j < palabra.Length; j++)
                 {
-                    for (int index = 0; index < palabra.Length; index++)
-                    {
-                        if (index > 0 && index % columna == 0)
-                            result += "\n";
-                        
-                        result += palabra[index];
-                    }
+                    if (j > 0 && j % columna == 0)
+                        resultado += "\n";
+
+                    resultado += palabra[j];
+                }
+                
+                if (i < palabras.Length - 1)
+                    resultado += "\n";
+            }
+            else 
+            {
+                if (i == 0)
+                {
+                    resultado += palabra;
+                    longitudLineaActual = palabra.Length;
                 }
                 else
                 {
-                    result += palabra;
+                    if (longitudLineaActual + 1 + palabra.Length <= columna)
+                    {
+                        resultado += " " + palabra;
+                        longitudLineaActual += 1 + palabra.Length;
+                    }
+                    else
+                    {
+                        resultado += "\n" + palabra;
+                        longitudLineaActual = palabra.Length;
+                    }
                 }
-                
-                if (palabras.Length >= 1 && iteraciones < palabras.Length)
-                    result += "\n";
             }
-            
-            return result;
         }
         
-
-        return string.Empty;
+        return resultado;
     }
+
 }
